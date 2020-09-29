@@ -8,5 +8,8 @@ namespace TextAdventure
         public string Name;
         public int Id;
         public List<int> ConnectedList;
+
+
+
     }
 }

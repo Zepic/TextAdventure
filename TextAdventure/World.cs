@@ -14,31 +14,38 @@ namespace TextAdventure
         {
             _locations = new List<Location>(locations);
         }
-        
 
 
+        public string ShowCommands()
+        {
+            string commands = @"1: Current Location name
+2: Look at nearby roads
+3: Travel to a location
+4: Rest";
+            return commands;
+        }
         public string HandleInput(string input)
         {
             var currentLocation = _user.Location;
             string x;
-            var inputLower = input.ToLower();
-            if (inputLower == "1") // Location
+            
+            if (input == "1") // Location
             {
                 x = getLocation(currentLocation);
             }
-            else if (inputLower == "2") // go to next location
-            {
-                x = "Not Assigned";
-            }
-            else if (inputLower == "3") // Look around
+            else if (input == "2") // go to next location
             {
                 x = lookAround();
             }
-            else if (inputLower == "4") // Option 4
+            else if (input == "3") // Look around
+            {
+                x = null; //GotoNextLocation();
+            }
+            else if (input == "4") // Option 4
             {
                 x = "Not Assigned";
             }
-            else if (inputLower == "5") // 5
+            else if (input == "5") // 5
             {
                 x = "Not Assigned";
             }
@@ -69,14 +76,19 @@ namespace TextAdventure
             {
                 if (location.Id ==_user.Location)
                 {
+                    x = "You see:\n";
                     foreach (var locationId in location.ConnectedList)
                     {
-                        x += getLocation(locationId) + "\n";
+                        x += "Road to " + getLocation(locationId) + "\n";
                     }
                 }
             }
             return x;
         }
 
+        private string GotoNextLocation(string Input)
+        {
+            return null;
+        }
     }
 }

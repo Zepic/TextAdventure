@@ -15,11 +15,11 @@ namespace TextAdventure
             var goblinCave = new Location {Name = "Goblin Cave", Id = 5, ConnectedList = new List<int> {1}};    //connected to Forrest
             var game = new World(startingField,forrest,wizzardTower,rollingHills,friendlyTown, goblinCave);
 
-
+            Console.WriteLine(game.ShowCommands());
             var input = Console.ReadLine();
             var response = game.HandleInput(input);
             Console.WriteLine(response);
-
+            
         }
     }
 }
